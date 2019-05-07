@@ -1,4 +1,4 @@
-﻿@model GigHub.ViewModels.GigsViewModel
+﻿@model GigHub.ViewModels.ArtistsViewModel
 
 @{
     ViewBag.Title = @Model.Heading;
@@ -6,33 +6,17 @@
 
 <h1>@Model.Heading</h1>
 
-<ul class="gigs voffset4">
-    @foreach(var gig in Model.UpcomingGigs)
+<ul>
+    @foreach (var artist in Model.FollowedArtists)
     {
         <li>
-            <div class="date">
-                <div class="month">
-                    @gig.DateTime.ToString("MMM")
-                </div>
-                <div class="day">
-                    @gig.DateTime.ToString("d ")
-                </div>
-            </div>
             <div class="details">
                 <span class="artist">
-                    @gig.Artist.Name
-                    @if (Model.ShowActions)
-                    {
-                        <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@gig.ArtistId">Follow</button>
-                    }
+                    @artist.Name
                 </span>
-                <span class="genre">
-                    @gig.Genre.Name
-                </span>
-                @if (Model.ShowActions)
-                {
-                    <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going ?</button>
-                }
+                @*<span class="genre">
+                    @artist.Genre.Name
+                </span>*@
             </div>
         </li>
     }
@@ -40,7 +24,7 @@
 
 @section scripts
 {
-    <script>
+    @*<script>
         $(document).ready(function() {
             $(".js-toggle-attendance").click(function (e) {
                 var button = $(e.target);
@@ -68,6 +52,6 @@
                     })
             });
         });
-    </script>
+    </script>*@
 }
 
