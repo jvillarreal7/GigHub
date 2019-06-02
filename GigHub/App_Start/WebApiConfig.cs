@@ -10,7 +10,7 @@ namespace GigHub
         {
             //Camel case JSON API results.
 
-            var settings =GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings;
+            var settings = GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             settings.Formatting = Formatting.Indented;
 
