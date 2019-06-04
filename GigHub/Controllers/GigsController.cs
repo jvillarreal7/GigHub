@@ -119,8 +119,8 @@ namespace GigHub.Controllers
                 viewModel.IsAttending = _context.Attendances
                     .Any(a => a.GigId == gig.Id && a.AttendeeId == userId);
 
-                viewModel.IsFollowing = _context.Attendances
-                    .Any(a => a.GigId == gig.Id && a.AttendeeId == userId);
+                viewModel.IsFollowing = _context.Followings
+                    .Any(f => f.FolloweeId == gig.ArtistId && f.FollowerId == userId);
             }
 
             return View("Details", viewModel);
